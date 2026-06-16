@@ -103,7 +103,8 @@ Jarvis will say **"Jarvis is now online"** and start listening.
 ``` bash
 tar -xvzf jarvis-linux.tar.gz
 chmod +x jarvis
-./jarvis```
+./jarvis
+```
 
 
 ## How It Works
