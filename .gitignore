@@ -32,3 +32,13 @@ tmp/
 # OS
 .DS_Store
 Thumbs.db
+
+# PyInstaller output
+dist/
+build/
+*.spec.bak
+build.sh
+
+# cache
+__pycache__/
+*.pyc
