@@ -2,7 +2,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import os
 
-load_dotenv("/home/chirayu/Jarvis/.env")
+load_dotenv("~/Jarvis/.env")
 
 key = os.getenv("OPENAI_API_KEY")
 if not key:

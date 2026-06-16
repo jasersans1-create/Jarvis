@@ -4,7 +4,7 @@ from brain.memory import load
 from brain.memory import remember, recall
 import os
 
-load_dotenv("/home/chirayu/Jarvis/.env")
+load_dotenv("~/Jarvis/.env")
 
 client = OpenAI(
     api_key=os.getenv(

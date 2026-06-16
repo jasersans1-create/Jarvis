@@ -50,9 +50,9 @@ def speak(text):
     )
     subprocess.run(
     [
-            "/home/chirayu/Jarvis/.venv/bin/piper",
+            "~/Jarvis/.venv/bin/piper",
             "--model",
-            "/home/chirayu/Jarvis/voices/en_US-lessac-medium.onnx",
+            "~/Jarvis/voices/en_US-lessac-medium.onnx",
             "--output_file",
             "/tmp/jarvis.wav"
         ],

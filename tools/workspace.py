@@ -56,7 +56,7 @@ def start_coding():
 
     return True
 
-BASE = "/home/chirayu"
+BASE = "~/Jarvis/Workspaces"
 
 def set_workspace(name):
 
