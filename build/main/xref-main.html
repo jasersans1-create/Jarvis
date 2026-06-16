@@ -7646,11 +7646,15 @@ imported by:
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#audio">audio</a>
+ &#8226;   <a href="#json">json</a>
  &#8226;   <a href="#numpy">numpy</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#sounddevice">sounddevice</a>
  &#8226;   <a href="#speech_recognition">speech_recognition</a>
  &#8226;   <a href="#time">time</a>
  &#8226;   <a href="#tools.audio_mode">tools.audio_mode</a>
+ &#8226;   <a href="#vosk">vosk</a>
 
   </div>
   <div class="import">
@@ -7667,8 +7671,13 @@ imported by:
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#audio">audio</a>
+ &#8226;   <a href="#getpass">getpass</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#tempfile">tempfile</a>
 
   </div>
   <div class="import">
@@ -7902,6 +7911,7 @@ imported by:
     <a href="#brain.intents">brain.intents</a>
  &#8226;   <a href="#brain.match">brain.match</a>
  &#8226;   <a href="#brain.memory">brain.memory</a>
+ &#8226;   <a href="#brain.normalize">brain.normalize</a>
  &#8226;   <a href="#brain.wake">brain.wake</a>
 
   </div>
@@ -7931,6 +7941,7 @@ imported by:
 imports:
     <a href="#brain">brain</a>
  &#8226;   <a href="#brain.intents">brain.intents</a>
+ &#8226;   <a href="#brain.normalize">brain.normalize</a>
 
   </div>
   <div class="import">
@@ -7948,7 +7959,7 @@ imported by:
 imports:
     <a href="#brain">brain</a>
  &#8226;   <a href="#json">json</a>
- &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
 
   </div>
   <div class="import">
@@ -7956,6 +7967,22 @@ imported by:
     <a href="#tools.chat">tools.chat</a>
  &#8226;   <a href="#tools.files">tools.files</a>
  &#8226;   <a href="#tools.workspace">tools.workspace</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="brain.normalize"></a>
+  <a target="code" href="///home/chirayu/Jarvis/brain/normalize.py" type="text/plain"><tt>brain.normalize</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#brain">brain</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#brain.match">brain.match</a>
 
   </div>
 
@@ -9195,6 +9222,7 @@ imported by:
  &#8226;   <a href="#bdb">bdb</a>
  &#8226;   <a href="#configparser">configparser</a>
  &#8226;   <a href="#dotenv.main">dotenv.main</a>
+ &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#http.server">http.server</a>
  &#8226;   <a href="#httpcore._api">httpcore._api</a>
@@ -13693,6 +13721,29 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="getpass"></a>
+  <a target="code" href="///usr/lib/python3.14/getpass.py" type="text/plain"><tt>getpass</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#io">io</a>
+ &#8226;   <a href="#msvcrt">msvcrt</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pwd">pwd</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#termios">termios</a>
+ &#8226;   <a href="#warnings">warnings</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#audio.speak">audio.speak</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="gettext"></a>
   <a target="code" href="///usr/lib/python3.14/gettext.py" type="text/plain"><tt>gettext</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -16944,6 +16995,7 @@ imported by:
  &#8226;   <a href="#encodings.quopri_codec">encodings.quopri_codec</a>
  &#8226;   <a href="#encodings.uu_codec">encodings.uu_codec</a>
  &#8226;   <a href="#fileinput">fileinput</a>
+ &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.client">http.client</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
@@ -17260,7 +17312,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#brain.memory">brain.memory</a>
+    <a href="#audio.listen">audio.listen</a>
+ &#8226;   <a href="#brain.memory">brain.memory</a>
  &#8226;   <a href="#charset_normalizer.models">charset_normalizer.models</a>
  &#8226;   <a href="#distro.distro">distro.distro</a>
  &#8226;   <a href="#httpx._content">httpx._content</a>
@@ -17748,6 +17801,7 @@ imported by:
 imported by:
     <a href="#asyncio.windows_events">asyncio.windows_events</a>
  &#8226;   <a href="#asyncio.windows_utils">asyncio.windows_utils</a>
+ &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#multiprocessing.popen_spawn_win32">multiprocessing.popen_spawn_win32</a>
  &#8226;   <a href="#multiprocessing.spawn">multiprocessing.spawn</a>
  &#8226;   <a href="#subprocess">subprocess</a>
@@ -57369,8 +57423,9 @@ imported by:
  &#8226;   <a href="#asyncio.selector_events">asyncio.selector_events</a>
  &#8226;   <a href="#asyncio.unix_events">asyncio.unix_events</a>
  &#8226;   <a href="#asyncio.windows_utils">asyncio.windows_utils</a>
+ &#8226;   <a href="#audio.listen">audio.listen</a>
+ &#8226;   <a href="#audio.speak">audio.speak</a>
  &#8226;   <a href="#bdb">bdb</a>
- &#8226;   <a href="#brain.memory">brain.memory</a>
  &#8226;   <a href="#bz2">bz2</a>
  &#8226;   <a href="#charset_normalizer.api">charset_normalizer.api</a>
  &#8226;   <a href="#compression.zstd._zstdfile">compression.zstd._zstdfile</a>
@@ -57391,6 +57446,7 @@ imported by:
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#genericpath">genericpath</a>
  &#8226;   <a href="#getopt">getopt</a>
+ &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#gettext">gettext</a>
  &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#gzip">gzip</a>
@@ -57566,6 +57622,8 @@ imported by:
  &#8226;   <a href="#tools.chat">tools.chat</a>
  &#8226;   <a href="#tools.coder">tools.coder</a>
  &#8226;   <a href="#tools.files">tools.files</a>
+ &#8226;   <a href="#tools.music">tools.music</a>
+ &#8226;   <a href="#tools.workspace">tools.workspace</a>
  &#8226;   <a href="#tqdm.utils">tqdm.utils</a>
  &#8226;   <a href="#unittest.loader">unittest.loader</a>
  &#8226;   <a href="#unittest.main">unittest.main</a>
@@ -58055,6 +58113,9 @@ imports:
 imported by:
     <a href="#_pyrepl.terminfo">_pyrepl.terminfo</a>
  &#8226;   <a href="#anyio._core._fileio">anyio._core._fileio</a>
+ &#8226;   <a href="#audio.listen">audio.listen</a>
+ &#8226;   <a href="#audio.speak">audio.speak</a>
+ &#8226;   <a href="#brain.memory">brain.memory</a>
  &#8226;   <a href="#dotenv.main">dotenv.main</a>
  &#8226;   <a href="#httpx._multipart">httpx._multipart</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
@@ -58104,6 +58165,9 @@ imported by:
  &#8226;   <a href="#setuptools.dist">setuptools.dist</a>
  &#8226;   <a href="#speech_recognition">speech_recognition</a>
  &#8226;   <a href="#speech_recognition.recognizers.vosk">speech_recognition.recognizers.vosk</a>
+ &#8226;   <a href="#tools.build">tools.build</a>
+ &#8226;   <a href="#tools.chat">tools.chat</a>
+ &#8226;   <a href="#tools.coder">tools.coder</a>
  &#8226;   <a href="#tools.workspace">tools.workspace</a>
  &#8226;   <a href="#tqdm.cli">tqdm.cli</a>
  &#8226;   <a href="#vosk">vosk</a>
@@ -58430,7 +58494,8 @@ imported by:
   <a name="pwd"></a>
   <tt>pwd</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imported by:
-    <a href="#http.server">http.server</a>
+    <a href="#getpass">getpass</a>
+ &#8226;   <a href="#http.server">http.server</a>
  &#8226;   <a href="#netrc">netrc</a>
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#posixpath">posixpath</a>
@@ -67748,6 +67813,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#argparse">argparse</a>
+ &#8226;   <a href="#audio.speak">audio.speak</a>
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#http.server">http.server</a>
  &#8226;   <a href="#multiprocessing.util">multiprocessing.util</a>
@@ -67766,6 +67832,9 @@ imported by:
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#tempfile">tempfile</a>
  &#8226;   <a href="#tools.apps">tools.apps</a>
+ &#8226;   <a href="#tools.build">tools.build</a>
+ &#8226;   <a href="#tools.files">tools.files</a>
+ &#8226;   <a href="#tools.music">tools.music</a>
  &#8226;   <a href="#uuid">uuid</a>
  &#8226;   <a href="#webbrowser">webbrowser</a>
  &#8226;   <a href="#zipfile">zipfile</a>
@@ -69056,6 +69125,7 @@ imported by:
  &#8226;   <a href="#fractions">fractions</a>
  &#8226;   <a href="#ftplib">ftplib</a>
  &#8226;   <a href="#getopt">getopt</a>
+ &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#gettext">gettext</a>
  &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#gzip">gzip</a>
@@ -69425,6 +69495,7 @@ imports:
 imported by:
     <a href="#_pyrepl.pager">_pyrepl.pager</a>
  &#8226;   <a href="#anyio._core._tempfile">anyio._core._tempfile</a>
+ &#8226;   <a href="#audio.speak">audio.speak</a>
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#dotenv.main">dotenv.main</a>
  &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
@@ -69469,6 +69540,7 @@ imported by:
  &#8226;   <a href="#_pyrepl.pager">_pyrepl.pager</a>
  &#8226;   <a href="#_pyrepl.unix_console">_pyrepl.unix_console</a>
  &#8226;   <a href="#_pyrepl.unix_eventqueue">_pyrepl.unix_eventqueue</a>
+ &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#tty">tty</a>
 
   </div>
@@ -69717,7 +69789,6 @@ imported by:
  &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#threading">threading</a>
- &#8226;   <a href="#tools.music">tools.music</a>
  &#8226;   <a href="#tqdm._monitor">tqdm._monitor</a>
  &#8226;   <a href="#tqdm.std">tqdm.std</a>
  &#8226;   <a href="#unittest.case">unittest.case</a>
@@ -70026,7 +70097,9 @@ imported by:
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#os">os</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#tools">tools</a>
  &#8226;   <a href="#tools.coder">tools.coder</a>
@@ -70049,6 +70122,7 @@ imports:
  &#8226;   <a href="#dotenv">dotenv</a>
  &#8226;   <a href="#openai">openai</a>
  &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#tools">tools</a>
 
   </div>
@@ -70068,6 +70142,7 @@ imports:
     <a href="#dotenv">dotenv</a>
  &#8226;   <a href="#openai">openai</a>
  &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#tools">tools</a>
 
   </div>
@@ -70086,6 +70161,7 @@ imported by:
 imports:
     <a href="#brain.memory">brain.memory</a>
  &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#tools">tools</a>
 
@@ -70103,9 +70179,10 @@ imported by:
   <a target="code" href="///home/chirayu/Jarvis/tools/music.py" type="text/plain"><tt>tools.music</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#pyautogui">pyautogui</a>
+    <a href="#os">os</a>
+ &#8226;   <a href="#pyautogui">pyautogui</a>
+ &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#subprocess">subprocess</a>
- &#8226;   <a href="#time">time</a>
  &#8226;   <a href="#tools">tools</a>
  &#8226;   <a href="#tools.audio_mode">tools.audio_mode</a>
 
@@ -70124,6 +70201,7 @@ imported by:
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#brain.memory">brain.memory</a>
+ &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#tools">tools</a>
  &#8226;   <a href="#tools.apps">tools.apps</a>
@@ -74721,7 +74799,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#speech_recognition.recognizers.vosk">speech_recognition.recognizers.vosk</a>
+    <a href="#audio.listen">audio.listen</a>
+ &#8226;   <a href="#speech_recognition.recognizers.vosk">speech_recognition.recognizers.vosk</a>
  &#8226;   <a href="#vosk.vosk_cffi">vosk.vosk_cffi</a>
 
   </div>
@@ -74792,6 +74871,7 @@ imported by:
  &#8226;   <a href="#distro.distro">distro.distro</a>
  &#8226;   <a href="#fileinput">fileinput</a>
  &#8226;   <a href="#functools">functools</a>
+ &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#gettext">gettext</a>
  &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#gzip">gzip</a>
