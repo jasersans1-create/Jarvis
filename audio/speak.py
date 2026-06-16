@@ -83,8 +83,40 @@ def clean(text: str) -> str:
     return text.strip()
 
 
+def _ensure_voice_config(model_path: str) -> None:
+    """Ensure the .json config file for the voice model exists, download if missing."""
+    model_path_obj = Path(model_path)
+    json_path = model_path_obj.with_suffix(model_path_obj.suffix + ".json")
+    
+    if json_path.exists():
+        return
+
+    print(f"[JARVIS] Config file {json_path} is missing.")
+    
+    # Try to auto-download if it is the default model
+    if model_path_obj.name == "en_US-hfc_male-medium.onnx":
+        url = "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/hfc_male/medium/en_US-hfc_male-medium.onnx.json"
+        print(f"[JARVIS] Attempting to download default voice config from {url}...")
+        try:
+            import urllib.request
+            json_path.parent.mkdir(parents=True, exist_ok=True)
+            urllib.request.urlretrieve(url, str(json_path))
+            print("[JARVIS] Voice config downloaded successfully.")
+            return
+        except Exception as e:
+            print(f"[JARVIS] Failed to auto-download config: {e}")
+            
+    # Print error/help instructions if we couldn't resolve/download it
+    print(f"\n[JARVIS] ERROR: Piper TTS requires a config JSON file alongside the ONNX model.")
+    print(f"Please download the corresponding config file and place it at:")
+    print(f"  {json_path}")
+    print(f"\nExample command to download the default config:")
+    print(f"  wget -O {json_path} \"https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/hfc_male/medium/en_US-hfc_male-medium.onnx.json\"\n")
+
+
 def speak(text: str) -> None:
     """Synthesize and play speech using Piper TTS + ffplay."""
+    _ensure_voice_config(_VOICE_MODEL)
     text = clean(text)
 
     print("\n[JARVIS]")

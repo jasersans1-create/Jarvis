@@ -73,10 +73,12 @@ Jarvis uses [Piper TTS](https://github.com/rhasspy/piper) for offline speech syn
 Download a voice model from [Hugging Face](https://huggingface.co/rhasspy/piper-voices):
 
 ```bash
-# Download a default US English voice model
+# Download a default US English voice model and config
 mkdir -p tts
 wget -O tts/en_US-hfc_male-medium.onnx \
   "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/hfc_male/medium/en_US-hfc_male-medium.onnx"
+wget -O tts/en_US-hfc_male-medium.onnx.json \
+  "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/hfc_male/medium/en_US-hfc_male-medium.onnx.json"
 ```
 
 ### 6. Configure environment
