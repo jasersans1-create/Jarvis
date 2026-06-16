@@ -10,7 +10,6 @@ Say **"Jarvis"** to wake it up, then talk naturally.
 | Feature | Description |
 |---|---|
 | 🎤 Wake Word | Say "Jarvis" to activate the assistant. |
-| 💬 AI Chat | Natural conversation powered by the AI Hack Club proxy. |
 | 💻 Code Generation | Ask Jarvis to write Python code, which opens automatically in VS Code. |
 | 🎵 Music Control | Play, pause, skip, and go back through songs using keyboard hotkeys. |
 | 🚀 App Launcher | Open Chrome, VS Code, Terminal, OBS, Minecraft, etc. |
@@ -122,16 +121,6 @@ Jarvis:  Yes?
 Once in conversation mode, you don't need to say "Jarvis" before every message.  
 Say **"sleep"**, **"goodbye"**, or **"exit"** to return to wake-word mode.
 
-### AI Chat
-
-Powered by the **AI Hack Club API** — an OpenAI-compatible API at `https://ai.hackclub.com`.
-
-```
-You:     Jarvis
-Jarvis:  Yes?
-You:     What is a neural network?
-Jarvis:  A neural network is a system of algorithms...
-```
 
 ### Memory
 
