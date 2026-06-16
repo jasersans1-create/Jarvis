@@ -1,5 +1,34 @@
+# Virtual environments
 .venv/
+venv/
+env/
+
+# Secrets — never commit
+.env
+
+# Memory is machine-specific, not part of the repo
 memory.json
+
+# Python cache
 __pycache__/
+*.py[cod]
+*.pyo
+
+# Build artifacts
+build/
+dist/
+*.spec
+generated/
+
+# Audio temp files
+*.wav
 tmp/
-*.wav   
+
+# IDE
+.idea/
+.vscode/settings.json
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

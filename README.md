@@ -1,192 +1,272 @@
-# Jarvis
+# Jarvis — AI Voice Assistant
 
-Jarvis is a local AI voice assistant built in Python.
+A local AI voice assistant powered by the **[AI Hack Club API](https://ai.hackclub.com)**.  
+Say **"Jarvis"** to wake it up, then talk naturally.
 
-Wake it up with **"Jarvis"** and talk naturally using voice or text.
+---
 
 ## Features
 
-- Wake word detection
-- Continuous conversation mode
-- AI chat
-- Local memory
-- Music control
-- App launching
-- Code generation
-- Workspace management
-- Offline speech output
+| Feature | Description |
+|---|---|
+| 🎤 Wake Word | Say "Jarvis" to activate the assistant. |
+| 💬 AI Chat | Natural conversation powered by the AI Hack Club proxy. |
+| 💻 Code Generation | Ask Jarvis to write Python code, which opens automatically in VS Code. |
+| 🎵 Music Control | Play, pause, skip, and go back through songs using keyboard hotkeys. |
+| 🚀 App Launcher | Open Chrome, VS Code, Terminal, OBS, Minecraft, etc. |
+| 🧠 Local Memory | Jarvis remembers and recalls facts locally in `memory.json`. |
+| 🔊 Offline TTS | Speech synthesis with Piper TTS running completely locally. |
+| 📴 Offline STT Fallback | Speech recognition automatically falls back offline using a local Vosk model when internet is down. |
 
-## Voice Assistant
+---
 
-Wake word:
+## Quick Start (Under 5 Minutes)
 
+### 1. Clone the repository
 
-Jarvis
+```bash
+git clone https://github.com/jasersans1-create/Jarvis.git
+cd Jarvis
+```
 
-Conversation mode:
+### 2. Create a virtual environment
 
-Jarvis
-→ chat normally
-→ say "sleep" to stop listening
+```bash
+python -m venv .venv
+source .venv/bin/activate   # Linux/macOS
+# .venv\Scripts\activate    # Windows
+```
 
-You do not need to repeat the wake word for every message once conversation mode starts.
+### 3. Install Python dependencies
 
-AI Chat
+```bash
+pip install -r requirements.txt
+```
 
-Ask things naturally:
+### 4. Install system dependencies
 
-``Jarvis what is gravity
-Jarvis explain recursion
-Jarvis help me code``
+Jarvis needs **ffmpeg** for audio playback and **portaudio** for microphone input.
 
-# Jarvis uses:
+**Arch Linux:**
+```bash
+sudo pacman -S portaudio ffmpeg
+```
 
-## OpenAI-compatible API
-## Conversation history
-## Local memory context
-## Memory
+**Ubuntu / Debian:**
+```bash
+sudo apt install portaudio19-dev ffmpeg
+```
 
-Jarvis can remember information locally.
+**Fedora:**
+```bash
+sudo dnf install portaudio-devel ffmpeg
+```
 
-Examples:
+**macOS:**
+```bash
+brew install portaudio ffmpeg
+```
 
-```remember I prefer Python```
-what do you remember
+### 5. Download a Piper voice model
 
-Stored in:
+Jarvis uses [Piper TTS](https://github.com/rhasspy/piper) for offline speech synthesis.  
+Download a voice model from [Hugging Face](https://huggingface.co/rhasspy/piper-voices):
 
-```memory.json```
-# Code Generation
+```bash
+# Download a default US English voice model
+mkdir -p tts
+wget -O tts/en_US-hfc_male-medium.onnx \
+  "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/hfc_male/medium/en_US-hfc_male-medium.onnx"
+```
 
-Examples:
+### 6. Configure environment
 
-``Jarvis code a BMI calculator
-Jarvis make a calculator
-Jarvis build a hospital management system``
+```bash
+cp .env.example .env
+```
 
-Jarvis can generate project files and code scaffolds.
+The default `.env` works out of the box — no API key is needed. See [Configuration](#configuration) for all options.
 
-# Music Control
+### 7. Run
 
-Commands:
+```bash
+python main.py
+```
 
-``play songs
-pause music
-resume music
-next song
-previous song
-Open Apps``
+Jarvis will say **"Jarvis is now online"** and start listening.
 
-Examples:
+---
 
-open chrome
-open vscode
-open minecraft
-open terminal
-open obs
-Tech Stack
-Python
-SpeechRecognition
-OpenAI-compatible API
-Piper TTS
-FFmpeg
-Systemd
-VS Code
-# Installation
-1. Clone the repository
-``git clone https://github.com/jasersans1-create/Jarvis
-  cd Jarvis``
-2. Create a virtual environment
-``python -m venv .venv
-source .venv/bin/activate``
-3. Install dependencies
-```pip install -r requirements.txt```
-4. Install system dependencies
+## How It Works
 
-Jarvis may also need some system packages for audio and GUI support.
+### Wake Word
 
-Arch Linux
-```sudo pacman -S python python-pip tk portaudio ffmpeg```
-Ubuntu / Debian
-```sudo apt install python3 python3-pip python3-tk portaudio19-dev ffmpeg```
-Fedora
-```sudo dnf install python3 python3-pip python3-tkinter portaudio-devel ffmpeg```
-5. Set up environment variables
+Jarvis listens for the word **"Jarvis"** (or common mishearings: "Jarvish", "Jervis", "Jarv").
 
-Create a .env file in the project root:
+```
+You:     Jarvis
+Jarvis:  Yes?
+```
 
-```OPENAI_API_KEY=your_api_key_here```
-``JARVIS_NAME=User``
+Once in conversation mode, you don't need to say "Jarvis" before every message.  
+Say **"sleep"**, **"goodbye"**, or **"exit"** to return to wake-word mode.
 
-You can also export the key temporarily in your terminal.
+### AI Chat
 
-Linux / macOS
-```export OPENAI_API_KEY="your_api_key_here"```
-Windows PowerShell
-setx OPENAI_API_KEY "your_api_key_here"
-Run
-```python main.py```
-Project Structure
-``Jarvis/
+Powered by the **AI Hack Club API** — an OpenAI-compatible API at `https://ai.hackclub.com`.
+
+```
+You:     Jarvis
+Jarvis:  Yes?
+You:     What is a neural network?
+Jarvis:  A neural network is a system of algorithms...
+```
+
+### Memory
+
+Jarvis can remember facts locally in `memory.json`:
+
+```
+You:     remember I prefer dark mode
+Jarvis:  Okay. I'll remember that.
+
+You:     what do you remember
+Jarvis:  I remember: I prefer dark mode
+```
+
+### Code Generation
+
+```
+You:     Jarvis code a BMI calculator
+Jarvis:  Building...
+Jarvis:  Done. Saved to generated/bmi_calculator.py
+```
+
+Generated files are saved to the `generated/` folder and opened in VS Code automatically.
+
+### Music Control
+
+```
+You:     Jarvis play music         → opens playlist in browser
+You:     Jarvis next song          → skips to the next track
+You:     Jarvis pause music        → pauses music playback
+You:     Jarvis resume music       → resumes music playback
+```
+
+---
+
+## AI Hack Club API
+
+Jarvis is integrated with the **[AI Hack Club API](https://ai.hackclub.com)** — a free, OpenAI-compatible AI API for Hack Club members.
+
+- **Endpoint:** `https://ai.hackclub.com/proxy/v1`
+- **Authentication:** No API key required (optionally configure `HACKCLUB_AI_API_KEY` if key-based access is active)
+- **Compatibility:** Fully compatible with standard OpenAI SDKs — just swap the `base_url`
+- **Models:** Access to 30+ models including `qwen/qwen3-32b`, `google/gemini-2.5-flash`, `gpt-5-mini`, and more.
+
+The integration is implemented using the standard `openai` library:
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="not-needed",
+    base_url="https://ai.hackclub.com/proxy/v1",
+)
+
+response = client.chat.completions.create(
+    model="qwen/qwen3-32b",
+    messages=[{"role": "user", "content": "Hello!"}],
+)
+```
+
+---
+
+## Configuration
+
+All settings are configured using environment variables. Copy `.env.example` to `.env` and adjust:
+
+| Variable | Default | Description |
+|---|---|---|
+| `HACKCLUB_AI_BASE_URL` | `https://ai.hackclub.com/proxy/v1` | AI Hack Club API proxy endpoint |
+| `HACKCLUB_AI_API_KEY` | `not-needed` | API key (not currently required) |
+| `JARVIS_CHAT_MODEL` | `qwen/qwen3-32b` | Model for general conversation |
+| `JARVIS_CODE_MODEL` | `qwen/qwen3-32b` | Model for code generation |
+| `JARVIS_PIPER_BIN` | auto-detected | Path to piper binary |
+| `JARVIS_VOICE_MODEL` | auto-detected | Path to `.onnx` voice model |
+| `JARVIS_TTS_TMPFILE` | user temp folder | Path for temporary TTS wav file |
+| `JARVIS_MIC_INDEX` | system default | Microphone device index |
+| `JARVIS_RECORD_SECONDS` | `8` | Recording duration in seconds |
+| `JARVIS_STT_OFFLINE` | `false` | Force offline STT using Vosk |
+| `JARVIS_VOSK_MODEL` | `./vosk-model/` | Path to Vosk model for offline STT |
+| `JARVIS_MUSIC_PLAYLIST` | lofi radio | YouTube URL opened by "play music" |
+| `JARVIS_BROWSER` | auto-detected | Browser command |
+| `JARVIS_WORKSPACES_DIR` | `~/Workspaces` | Directory for workspaces |
+| `JARVIS_GENERATED_DIR` | `./generated` | Directory for generated code |
+
+---
+
+## Project Structure
+
+```
+Jarvis/
+├── main.py              ← Assistant entry point
+├── .env                 ← Your local configuration (not committed)
+├── .env.example         ← Configuration template
+├── requirements.txt     ← Python dependencies
+├── memory.json          ← Local memory store (auto-created)
+│
 ├── audio/
+│   ├── listen.py        ← Audio input & online/offline speech recognition
+│   └── speak.py         ← Audio output (Piper TTS)
+│
 ├── brain/
+│   ├── intents.py       ← Intent phrase definitions
+│   ├── match.py         ← Intent matching logic
+│   ├── memory.py        ← Memory read/write
+│   ├── normalize.py     ← Centralized text normalization
+│   └── wake.py          ← Wake word extractor
+│
 ├── tools/
-├── tts/
-├── voices/
-├── wake/
-├── main.py
-├── memory.json
-├── requirements.txt
-├── README.md
-└── .env``
-# Configuration
+│   ├── apps.py          ← Desktop application launcher
+│   ├── audio_mode.py    ← Microphone enable/disable state
+│   ├── build.py         ← Code generator workspace management
+│   ├── chat.py          ← AI conversation handler
+│   ├── coder.py         ← Code generation handler
+│   ├── files.py         ← Workspace file explorer integration
+│   ├── music.py         ← Browser-based music playback control
+│   └── workspace.py     ← Project workspace initializer
+│
+├── tts/                 ← Default location for Piper voice model
+├── vosk-model/          ← Default location for Vosk speech model
+└── generated/           ← Default directory for generated code
+```
 
-Jarvis is designed to be portable.
+---
 
-Avoid hardcoding:
+## Troubleshooting
 
-your name
-absolute file paths
-machine-specific folders
+**No speech recognized:**
+- Ensure the microphone is connected and unmuted.
+- Set `JARVIS_MIC_INDEX` to the correct device index.
+- List available audio devices: `python -c "import sounddevice; print(sounddevice.query_devices())"`
 
-Use environment variables and relative paths instead.
+**Piper TTS not working:**
+- Verify `piper-tts` is installed in your virtual environment: `pip install piper-tts`.
+- Set `JARVIS_PIPER_BIN` to the absolute path of the `piper` executable.
 
-# Example:
+**Offline fallback issues:**
+- If you lose internet and speech recognition stops working, make sure the local Vosk model is downloaded to `./vosk-model/vosk-model-small-en-us-0.15` and the `vosk` Python library is installed.
 
-from pathlib import Path
-import os
+**API connection errors:**
+- Check your internet connection.
+- Verify `https://ai.hackclub.com` is online in your browser.
 
-BASE_DIR = Path(__file__).parent
-USER_NAME = os.getenv("JARVIS_NAME", "User")
-Current Goals
-Better memory
-Faster responses
-Smarter actions
-Streaming speech
-Full desktop automation
-Better wake detection
-Example
+---
 
-User:
+## License
 
-Jarvis
+MIT License — free to use, modify, and distribute.
 
-Jarvis:
-
-Yes?
-
-User:
-
-Code a BMI calculator
-
-Jarvis:
-
-Done. Saved to project.
-Notes
-You must provide your own API key
-Never commit .env
-Some voice features depend on system audio libraries
-Some features may require additional setup on Linux
-# Built by
-
-# Chirayu
+# BUILT BY:
+## CHIRAYU

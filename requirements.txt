@@ -1,27 +1,18 @@
-openai
+# Core AI / HTTP
+openai>=1.0.0
 python-dotenv
-requests
 
+# Speech Recognition (STT)
 SpeechRecognition
-PyAudio
 sounddevice
-piper-tts
-pyttsx3
-vosk
-openwakeword
-pvporcupine
-
-PyAutoGUI
-pyperclip
-PyGetWindow
-MouseInfo
-PyMsgBox
-PyScreeze
-pytweening
-
 numpy
-scipy
-scikit-learn
-joblib
+vosk
 
-pydantic
+# Text-to-Speech (TTS) — Piper
+piper-tts
+
+# GUI automation (music controls)
+pyautogui
+
+# Wake word detection (optional, for hardware-based wake word)
+openwakeword

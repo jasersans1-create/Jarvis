@@ -1,55 +1,21 @@
+"""
+match.py — Intent recognition using keyword phrase matching.
+"""
+
 from brain.intents import INTENTS
+from brain.normalize import normalize
 
 
-def normalize(text):
+def get_intent(text: str) -> str | None:
+    """
+    Match text against known intent phrases.
+    Returns the intent name, or None if no match found.
+    """
+    normalized = normalize(text)
 
-    text = text.lower()
-
-    replacements = {
-
-        "vs code": "vscode",
-
-        "visual studio code": "vscode",
-
-        "mine craft": "minecraft",
-
-        "obs studio": "obs"
-
-    }
-
-    for old, new in replacements.items():
-
-        text = text.replace(
-            old,
-            new
-        )
-
-    return text.strip()
-
-
-def get_intent(text):
-
-    text = normalize(text)
-
-    print("TEXT =", text)
-
-    for intent in INTENTS:
-
-        phrases = INTENTS[intent]
-
+    for intent, phrases in INTENTS.items():
         for phrase in phrases:
-
-            phrase = normalize(
-                phrase
-            )
-
-            print(
-                "checking",
-                phrase
-            )
-
-            if phrase in text:
-
+            if normalize(phrase) in normalized:
                 return intent
 
     return None
