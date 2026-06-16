@@ -148,7 +148,7 @@ VS Code
 Clone:
 
 ```bash
-git clone YOUR_REPO_LINK
+git clone https://github.com/jasersans1-create/Jarvis
 cd Jarvis
 ```
 
