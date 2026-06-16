@@ -98,9 +98,10 @@ python main.py
 Jarvis will say **"Jarvis is now online"** and start listening.
 
 ---
-## OR FOR APP DO
+## OR FOR APP FROM RELEASAS DO:
 ### After downloading release from relasess:
 ``` bash
+cd Downloads/
 tar -xvzf jarvis-linux.tar.gz
 chmod +x jarvis
 ./jarvis
