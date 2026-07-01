@@ -1,6 +1,6 @@
 # Jarvis
 
-A local voice assistant I built that runs on Linux.( its an Arch Linux package right now , Runs currently on CLI)
+A local voice assistant I built that runs on Linux.( its an Arch Linux package in the latest release right now , Runs currently on CLI)
 
 It listens for **"Jarvis"**, understands voice commands, talks back using Piper TTS, remembers things locally, can generate code, launch apps, and control music.
 
